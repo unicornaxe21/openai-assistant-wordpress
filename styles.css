@@ -1,0 +1,133 @@
+/* Основной контейнер окна чата для больших экранов */
+#asstgpt-dialog-container {
+  width: 100%;
+  background-color: #ffffff;
+  border: none; /* Убрана рамка */
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 600px) {
+  #asstgpt-dialog-container {
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent; /* Сделать фон прозрачным */
+  }
+}
+
+/* Область диалога */
+#asstgpt-dialog {
+  height: 400px;
+  background-color: #ffffff; /* Светло-серый фон для GPT */
+  border: none; /* Убрана рамка */
+  border-radius: 5px;
+  padding: 10px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+/* Стили для поля ввода */
+#asstgpt-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  color: #000000; /* Черный цвет текста, вводимого пользователем */
+}
+
+/* Стили для placeholder */
+#asstgpt-input::placeholder {
+  color: #B0B0B0; /* Светлосерый цвет текста placeholder */
+}
+
+/* Кнопка отправки */
+#asstgpt-submit {
+  display: inline-block;
+  padding: 12px 24px; /* Увеличен размер */
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #328051; /* Изменен цвет кнопки */
+  border: 1px solid #328051;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  width: 100%; /* Ширина подстраивается под экран */
+}
+
+#asstgpt-submit:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Сообщения */
+.user-message,
+.gpt-message {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background-color: #3368db; /* Фон пользователя */
+  color: #ffffff; /* Цвет текста пользователя */
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.user-message:before {
+  content: "\f2c0"; /* Иконка пользователя */
+  font-family: FontAwesome;
+  margin-right: 10px;
+}
+
+.gpt-message {
+  background-color: #f7f7f7; /* Фон GPT */
+  color: #000000; /* Черный цвет текста */
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.gpt-message:before {
+  content: "\f27a"; /* Иконка Чата */
+  font-family: FontAwesome;
+  margin-right: 10px;
+}
+
+/* Стили для мигающих точек */
+.loading-dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  background-color: #328051;
+  border-radius: 50%;
+  animation: blink-animation 1.4s infinite both;
+}
+
+@keyframes blink-animation {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.loading-dot:nth-child(1) { animation-delay: 0s; }
+.loading-dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-dot:nth-child(3) { animation-delay: 0.4s; }
