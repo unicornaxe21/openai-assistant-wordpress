@@ -1,8 +1,4 @@
 <link rel="stylesheet" href="styles.css">
-<?php
-
-
-?>
 
 <div id="asstgpt-dialog-container">
   <div id="asstgpt-dialog"></div>
